@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expense Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <p class="eyebrow">Money in, money out</p>
+    <h1>Expense Tracker</h1>
+    <p class="sub">Log your income and expenses to see where your money goes.</p>
+  </header>
+
+  <section class="balance-card">
+    <span class="balance-label">Current Balance</span>
+    <span class="balance-amount" id="balanceAmount">₹0.00</span>
+    <div class="balance-split">
+      <div class="split income">
+        <span class="split-label">Income</span>
+        <span class="split-amount" id="totalIncome">₹0.00</span>
+      </div>
+      <div class="split expense">
+        <span class="split-label">Expenses</span>
+        <span class="split-amount" id="totalExpense">₹0.00</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="add-entry">
+    <form id="form">
+      <input type="text" id="descInput" placeholder="Description (e.g. Groceries)" autocomplete="off" required>
+      <div class="form-row">
+        <input type="number" id="amountInput" placeholder="Amount" step="0.01" min="0.01" required>
+        <select id="categoryInput">
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Bills">Bills</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Salary">Salary</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="type-toggle" id="typeToggle">
+        <button type="button" class="type-btn active" data-type="expense">Expense</button>
+        <button type="button" class="type-btn" data-type="income">Income</button>
+      </div>
+      <button type="submit" class="primary-btn">Add Entry</button>
+    </form>
+  </section>
+
+  <section class="breakdown" id="breakdownSection">
+    <h2>Spending by Category</h2>
+    <div class="bars" id="bars"></div>
+  </section>
+
+  <section class="history">
+    <div class="history-header">
+      <h2>Transactions</h2>
+      <button class="clear-btn" id="clearAll">Clear all</button>
+    </div>
+    <ul id="list"></ul>
+    <div class="empty" id="empty">No transactions yet — add your first one above</div>
+  </section>
+
+</div>
+
+<script src="sheet.js"></script>
+</body>
+</html>
